@@ -1,0 +1,41 @@
+<%-include('partials/head', {mySite: pageName })%>
+
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-half is-offset-one-quarter is-mobile">
+                        <div id="mainCard" class="card">
+                            <%-include('partials/navbar')%>
+
+                                <!--///// Start /////-->
+                                <div id="mainButton" class="container">
+                                    <div class="column is-half is-offset-one-quarter">
+                                        <a href="/score_now" class="button is-warning is-light is-rounded is-outlined is-medium is-fullwidth">
+                                            <span class="icon-text">
+                                                <span class="icon">
+                                                    <i class="fas fa-clipboard"></i>
+                                                </span>
+                                                <span>Score Now</span>
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                    <!-- <div class="column is-half is-offset-one-quarter">
+                                        <a href="/search" class="button is-warning is-light is-rounded is-outlined is-medium is-fullwidth">
+                                            Search
+                                        </a>
+                                    </div> -->
+
+                                </div>
+                                <!--///// End /////-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+    </html>
