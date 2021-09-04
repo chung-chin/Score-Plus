@@ -11,19 +11,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set ('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/score_plus', (req, res) => {
-    const pageName = "Score Plus"
-    res.render('score_plus', { pageName })
+app.get('/', (req, res) => {
+    res.render('score_plus', { pageName: "Score Plus" })
 })
 
 app.get('/score_now', (req, res) => {
-    const pageName = "Score Now"
-    res.render('score_now', { pageName })
+    res.render('score_now', { pageName: "Score Now" })
 })
 
 app.get('/ping_pong', (req, res) => {
-    const pageName = "Ping Pong"
-    res.render('ping_pong', { pageName })
+    res.render('ping_pong', { pageName: "Ping Pong" })
 })
 
 app.listen(3000, () => {

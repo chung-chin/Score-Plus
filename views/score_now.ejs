@@ -12,32 +12,11 @@
                                 <div class="container">
                                     <div class="column is-11 is-offset-1">
                                         <div class="buttons">
-                                            <a href="/ping_pong" class="button is-info is-light is-medium">
-                                                <span class="icon-text">
-                                                    <span class="icon">
-                                                        <i class="fas fa-table-tennis"></i>
-                                                    </span>
-                                                    <span><strong>Ping Pong</strong></span>
-                                                </span>
-                                            </a>
+                                            <%-include('partials/sports', { sportUrl: "/ping_pong", visability: "", iconName: "fa-table-tennis", pageName: pageName })%>
 
-                                            <a href="" class="button is-info is-light is-medium" disabled>
-                                                <span class="icon-text">
-                                                    <span class="icon">
-                                                        <i class="fas fa-volleyball-ball"></i>
-                                                    </span>
-                                                    <span><strong>Volleyball</strong></span>
-                                                </span>
-                                            </a>
+                                            <%-include('partials/sports', { sportUrl: "", visability: "disabled", iconName: "fa-volleyball-ball", pageName: pageName })%>
 
-                                            <a href="" class="button is-info is-light is-medium" disabled>
-                                                <span class="icon-text">
-                                                    <span class="icon">
-                                                        <i class="fas fa-basketball-ball"></i>
-                                                    </span>
-                                                    <span><strong>Basketball</strong></span>
-                                                </span>
-                                            </a>
+                                            <%-include('partials/sports', { sportUrl: "", visability: "disabled", iconName: "fa-basketball-ball", pageName: pageName })%>
                                         </div>
                                     </div>
                                 </div>
