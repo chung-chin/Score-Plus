@@ -1,11 +1,3 @@
-#mainCard {
-    background-color: #6D6875;
+.section {
+    padding: 3rem 1.5rem;
 }
-
-#scoreBoard {
-    background-color: #F4F1DE;
-}
-
-/* #navbarTop {
-    background-color: #E5E5E5;
-} */

@@ -1,0 +1,138 @@
+<%-include('partials/head', {mySite: pageName})%>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter is-mobile">
+                    <div id="mainCard" class="card">
+                        <%-include('partials/navbar')%>
+
+                        <!--///// Start /////-->
+                        <div class="container">
+                            <div class="column">
+                                <div id="scoreBoard"  class="card">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="/photo/ping_pong.jpg" alt="">
+                                        </figure>
+                                    </div>
+
+                                    <nav id="scoreNav" class="navbar" role="navigation" aria-label="dropdown navigation">
+                                        <div class="navbar-menu">
+                                            <div class="navbar-start">
+                                                <div class="navbar-item">
+                                                    <p><strong><%=pageName%> Score Keeper</strong></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="navbar-end">
+                                                <div class="navbar-item has-dropdown is-active is-right">
+                                                    <a class="navbar-link is-arrowless">
+                                                        <i class="fas fa-cog fa-lg"></i>
+                                                    </a>
+
+                                                    <!-- <div class="buttons">
+                                                        <span class="button icon">
+                                                            <i class="fas fa-save fa-lg"></i>
+                                                        </span>
+                                                        <span class="button icon">
+                                                            <i class="fas fa-cog fa-lg"></i>
+                                                        </span>
+                                                    </div> -->
+
+                                                    <!-- <div class="dropdown is-right is-active">
+                                                        <div class="dropdown-trigger">
+                                                            <button class="button" aria-haspopup="true" aria-controls="dropdownMenu">
+                                                                <span class="icon">
+                                                                    <i class="fas fa-cog fa-lg" aria-hidden="true"></i>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+
+                                                        <div id="dropdownMenu" class="dropdown-menu" role="menu">
+                                                            <div class="dropdown-content">
+                                                                <div class="dropdown-item">
+                                                                    <p>Play to</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </nav>
+
+                                    <div class="card-content">
+                                        <div class="content">
+                                            <footer class="card-footer">
+                                                <button class="button is-primary is-large card-footer-item">Player One</button>
+                                                <button class="button is-info is-large card-footer-item">Player Two</button>
+                                            </footer>
+                                            <footer class="card-footer">
+                                                <b class="card-footer-item">
+                                                    <span class="title is-1" id="p1Display">0</span>
+                                                </b>
+                                                <b class="card-footer-item">
+                                                    <span class="title is-1" id="p2Display">0</span>
+                                                </b>
+                                            </footer>
+                                            <!-- <h1 class="title is-1">
+                                                <span id="p1Display">0</span> to <span id="p2Display">0</span>
+                                            </h1>
+                                            <p class="subtitle">Use the buttons below to keep score</p> -->
+                                            <h3>Use the buttons below to keep score</h2>
+                                            <div class="columns is-mobile">
+                                                <div class="column">
+                                                    <label for="gameto" class="label is-large is-inline">Games</label>
+                                                    <div class="select is-rounded">
+                                                        <select name="" id="gameto">
+                                                            <option value="1">1</option>
+                                                            <option value="3">3</option>
+                                                            <option value="5">5</option>
+                                                            <option value="7">7</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <label for="playto" class="label is-large is-inline">Scores</label>
+                                                    <div class="select is-rounded">
+                                                        <select name="" id="playto">
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="21">21</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <footer class="card-footer">
+                                        <button id="p1Increase" class="button is-primary is-large card-footer-item">+</button>
+                                        <button id="p1Decrease" disabled=true class="button is-primary is-large card-footer-item">-</button>
+                                        <button id="p2Increase" class="button is-info is-large card-footer-item">+</button>
+                                        <button id="p2Decrease" disabled=true class="button is-info is-large card-footer-item">-</button>
+                                    </footer>
+                                    <footer class="card-footer">
+                                        <button id="reset" class="button is-danger is-large card-footer-item">Reset</button>
+                                        <button id="rematch" class="button is-warning is-large card-footer-item">Rematch</button>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                        <!--///// End /////-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

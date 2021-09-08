@@ -1,22 +1,22 @@
-<%-include('partials/head', {mySite: ""})%>
+<%-include('partials/head', {mySite: pageName})%>
 
 <body>
     <section class="section">
         <div class="container">
-            <div class="columns">
-                <div class="column is-half is-offset-one-quarter is-mobile">
-                    <div id="mainCard" class="card">
-                        <%-include('partials/navbar')%>
+            <div class="col-md-6 offset-md-3">
+                <div id="mainCard" class="card">
+                    <%-include('partials/navbar')%>
 
-                        <!--///// Start /////-->
-                        
-                        <!--///// End /////-->
+                    <!--///// Start /////-->
+                    
+                    <!--///// End /////-->
 
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <%-include('partials/app')%>
 
 </body>
 

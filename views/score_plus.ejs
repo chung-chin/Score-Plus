@@ -1,41 +1,34 @@
-<%-include('partials/head', {mySite: pageName })%>
+<%-include('partials/head', {mySite: pageName})%>
 
-    <body>
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column is-half is-offset-one-quarter is-mobile">
-                        <div id="mainCard" class="card">
-                            <%-include('partials/navbar')%>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <%-include('partials/navbar')%>
 
-                                <!--///// Start /////-->
-                                <div id="mainButton" class="container">
-                                    <div class="column is-half is-offset-one-quarter">
-                                        <a href="/score_now" class="button is-warning is-light is-rounded is-outlined is-medium is-fullwidth">
-                                            <span class="icon-text">
-                                                <span class="icon">
-                                                    <i class="fas fa-clipboard"></i>
-                                                </span>
-                                                <span>Score Now</span>
-                                            </span>
-                                        </a>
-                                    </div>
+                    <!--///// Start /////-->
+                    <div class="container bg-light">
+                        <div class="card-body">
+                            <div class="d-grid gap-3 d-md-block d-xxl-flex mx-auto">
+                                <%-include('partials/sports', { sportUrl: "/ping_pong", visability: "", iconName: "fa-table-tennis", sportName: "Ping Pong" })%>
 
-                                    <!-- <div class="column is-half is-offset-one-quarter">
-                                        <a href="/search" class="button is-warning is-light is-rounded is-outlined is-medium is-fullwidth">
-                                            Search
-                                        </a>
-                                    </div> -->
+                                <%-include('partials/sports', { sportUrl: "", visability: "disabled", iconName: "fa-volleyball-ball", sportName: "Volleyball" })%>
 
-                                </div>
-                                <!--///// End /////-->
+                                <%-include('partials/sports', { sportUrl: "", visability: "disabled", iconName: "fa-basketball-ball", sportName: "Basketball" })%>
 
+                            </div>
                         </div>
                     </div>
+                    <!--///// End /////-->
+
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </body>
+    <%-include('partials/app')%>
 
-    </html>
+</body>
+
+</html>

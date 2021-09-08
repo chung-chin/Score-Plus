@@ -1,99 +1,76 @@
 <%-include('partials/head', {mySite: pageName})%>
 
-<body>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-half is-offset-one-quarter is-mobile">
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="col-md-6 offset-md-3">
                     <div id="mainCard" class="card">
                         <%-include('partials/navbar')%>
 
-                        <!--///// Start /////-->
-                        <div class="container">
-                            <div class="column">
-                                <div id="scoreBoard"  class="card">
-                                    <div class="card-image">
-                                        <figure class="image is-2by1">
-                                            <img src="/photo/ping_pong.jpg" alt="">
-                                        </figure>
+                            <!--///// Start /////-->
+                            <div class="container bg-light">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <img class="img-fluid img-thumbnail" src="/photo/ping_pong.jpg" alt="">
                                     </div>
 
-                                    <header class="card-header">
-                                        <p class="card-header-title">
-                                            <%=pageName%> Score Keeper
-                                        </p>
+                                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                        <div class="container-fluid">
+                                            <span class="navbar-brand"><strong><%=pageName%> Score Keeper</strong></span>
 
-                                    </header>
+                                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                                aria-expanded="false" aria-label="Toggle navigation">
+                                                <i class="fas fa-align-justify"></i>
+                                            </button>
 
-                                    <div class="card-content">
-                                        <div class="content">
-                                            <footer class="card-footer">
-                                                <button class="button is-primary is-large card-footer-item">Player One</button>
-                                                <button class="button is-info is-large card-footer-item">Player Two</button>
-                                            </footer>
-                                            <footer class="card-footer">
-                                                <b class="card-footer-item">
-                                                    <span class="title is-1" id="p1Display">0</span>
-                                                </b>
-                                                <b class="card-footer-item">
-                                                    <span class="title is-1" id="p2Display">0</span>
-                                                </b>
-                                            </footer>
-                                            <!-- <h1 class="title is-1">
-                                                <span id="p1Display">0</span> to <span id="p2Display">0</span>
-                                            </h1>
-                                            <p class="subtitle">Use the buttons below to keep score</p> -->
-                                            <h3>Use the buttons below to keep score</h2>
-                                            <div class="columns is-mobile">
-                                                <div class="column">
-                                                    <label for="gameto" class="label is-large is-inline">Games</label>
-                                                    <div class="select is-rounded">
-                                                        <select name="" id="gameto">
-                                                            <option value="1">1</option>
-                                                            <option value="3">3</option>
-                                                            <option value="5">5</option>
-                                                            <option value="7">7</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="column">
-                                                    <label for="playto" class="label is-large is-inline">Scores</label>
-                                                    <div class="select is-rounded">
-                                                        <select name="" id="playto">
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="21">21</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                                <ul class="navbar-nav">
+                                                    
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#"
+                                                            id="navbarDropdownMenuLink" role="button"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Games
+                                                        </a>
+                                                        <ul class="dropdown-menu"
+                                                            aria-labelledby="navbarDropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#"
+                                                            id="navbarDropdownMenuLink" role="button"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Play To
+                                                        </a>
+                                                        <ul class="dropdown-menu"
+                                                            aria-labelledby="navbarDropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                    <footer class="card-footer">
-                                        <button id="p1Increase" class="button is-primary is-large card-footer-item">+</button>
-                                        <button id="p1Decrease" disabled=true class="button is-primary is-large card-footer-item">-</button>
-                                        <button id="p2Increase" class="button is-info is-large card-footer-item">+</button>
-                                        <button id="p2Decrease" disabled=true class="button is-info is-large card-footer-item">-</button>
-                                    </footer>
-                                    <footer class="card-footer">
-                                        <button id="reset" class="button is-danger is-large card-footer-item">Reset</button>
-                                        <button id="rematch" class="button is-warning is-large card-footer-item">Rematch</button>
-                                    </footer>
+                                    </nav>
+
                                 </div>
                             </div>
-                        </div>
-                        <!--///// End /////-->
+
+                            <!--///// End /////-->
 
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</body>
+        <%-include('partials/app')%>
 
-</html>
+    </body>
+
+    </html>

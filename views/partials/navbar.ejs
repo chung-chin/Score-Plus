@@ -1,42 +1,26 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a href="/" class="navbar-item">
-            <strong>Score Plus</strong>
-        </a>
+<nav id="mainNavbar" class="navbar navbar-expand-md navbar-light bg-light py-1 px-2 border-bottom">
+    <a href="/" class="navbar-brand fs-4">
+        <strong>Score Plus</strong>
+    </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarTop">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
+        aria-label="Toggle navigation">
+        <i class="fas fa-align-justify"></i>
+    </button>
 
-    <div id="navbarTop" class="navbar-menu">
-
-        <div class="navbar-start">
-            <a href="/search" class="navbar-item">
-                <span class="icon-text">
-                    <span class="icon">
+    <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="/search" class="nav-link fs-5">
+                    <span>
                         <i class="fas fa-search"></i>
+                        <span>Search</span>
                     </span>
-                    <span><strong>Search</strong></span>
-                </span>
-            </a>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbr-item">
-                <div class="buttons">
-                    <a href="/account/create" class="button is-link is-light">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a href="/account" class="button is-light">
-                        Log in
-                    </a>
-                </div>
-            </div>
-        </div>
-
+                </a>
+            </li>
+        </ul>
+        <a href="/account" class="nav-link text-dark">
+            <i class="fas fa-user fa-2x"></i>
+        </a>
     </div>
 </nav>
