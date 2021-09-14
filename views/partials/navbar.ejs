@@ -1,5 +1,5 @@
-<nav id="mainNavbar" class="navbar navbar-expand-md navbar-light bg-light py-1 px-2 border-bottom">
-    <a href="/" class="navbar-brand fs-4">
+<nav id="mainNavbar" class="navbar navbar-expand-md navbar-dark bg-secondary py-1 px-2 border-bottom">
+    <a href="/" class="navbar-brand fs-4 px-1">
         <strong>Score Plus</strong>
     </a>
 
@@ -10,17 +10,15 @@
 
     <div id="mainNavLinks" class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a href="/search" class="nav-link fs-5">
-                    <span>
-                        <i class="fas fa-search"></i>
-                        <span>Search</span>
-                    </span>
-                </a>
-            </li>
+            <form class="d-flex nav-item">
+                <input class="form-control me-2" type="search" placeholder="Username" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">
+                    <i class="fas fa-search fa-lg"></i>
+                </button>
+            </form>
         </ul>
-        <a href="/account" class="nav-link text-dark">
-            <i class="fas fa-user fa-2x"></i>
+        <a id="userBtn" href="/account" class="btn btn-outline-light">
+            <i class="fas fa-user fa-lg"></i>
         </a>
     </div>
 </nav>

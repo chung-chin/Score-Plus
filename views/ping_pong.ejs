@@ -9,16 +9,16 @@
                         <%-include('partials/navbar')%>
 
                             <!--*///// Start /////-->
-                            <div class="container bg-light">
-                                <div class="card-body">
+                            <div class="container py-3 bg-secondary">
+                                <div class="card-body bg-light">
 
                                     <!--* Main photo -->
-                                    <div class="container">
+                                    <div class="container collapse">
                                         <img class="img-fluid img-thumbnail" src="/photo/ping_pong.jpg" alt="">
                                     </div>
 
                                     <!--* Score keeper navbar -->
-                                    <nav id="scoreKeeperNav" class="navbar navbar-expand-lg navbar-light bg-light">
+                                    <nav id="scoreKeeperNav" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                                         <div class="container-fluid">
                                             <span class="navbar-brand"><strong><%=pageName%> Score Keeper</strong></span>
 
@@ -30,63 +30,94 @@
 
                                             <div id="scoreKeeperLinks" class="collapse navbar-collapse">
                                                 <!--* Game setting -->
-                                                <ul class="navbar-nav mx-auto gap-3">
+                                                <ul class="navbar-nav mx-auto">
                                                     <li class="nav-item">
-                                                        <span>Games</span>
-                                                        <select class="form-select-sm" aria-label="Default select example">
+                                                        <label for="gameSet" class="label d-inline">Games</label>
+                                                        <select id="gameSet" class="form-select-sm px-1" aria-label="gameSet">
                                                             <option selected value="1">1</option>
                                                             <option value="3">3</option>
                                                             <option value="5">5</option>
                                                             <option value="7">7</option>
                                                         </select>
-                                                    </li>
-
-                                                    <li class="nav-item">
-                                                        <span>Play to</span>
-                                                        <select class="form-select-sm" aria-label="Default select example">
+                                                        
+                                                        <label for="playTo" class="label d-inline px-1">Play to</label>
+                                                        <select id="playTo" class="form-select-sm" aria-label="playTo">
                                                             <option selected value="3">3</option>
                                                             <option value="7">7</option>
                                                             <option value="11">11</option>
                                                             <option value="21">21</option>
                                                         </select>
+
+                                                        <!--* Share button and reset button -->
+                                                        <button id="scoreKeeperCog" class="btn btn-sm btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fas fa-cog fa-lg"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="scoreKeeperCog">
+                                                            <li>
+                                                                <button id="shareBtn" class="btn btn-sm dropdown-item" type="button">
+                                                                    <i class="fas fa-share-alt fa-lg"></i>
+                                                                    <span><strong>Share</strong></span>
+                                                                </button>
+                                                            </li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li>
+                                                                <button id="resetBtn" class="btn btn-sm dropdown-item" type="button">
+                                                                    <i class="fas fa-undo-alt fa-lg"></i>
+                                                                    <span><strong>Reset</strong></span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                 </ul>
-
-                                                <!--* Save button and reset button -->
-                                                <div class="dropdown">
-                                                    <button id="scoreKeeperCog" class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="fas fa-cog fa-lg"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="scoreKeeperCog">
-                                                    <li>
-                                                        <button id="saveBtn" class="btn dropdown-item" type="button">
-                                                            <i class="fas fa-save"></i>
-                                                            <span>Save</span>
-                                                        </button>
-                                                    </li>
-                                                    <li><hr class="dropdown-divider"></li>
-                                                    <!-- <li><a class="dropdown-item" href="#">Rematch</a></li> -->
-                                                    <li>
-                                                        <button id="resetBtn" class="btn dropdown-item" type="button">
-                                                            <i class="fas fa-undo"></i>
-                                                            <span>Reset</span>
-                                                        </button>
-                                                    </li>
-                                                    </ul>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </nav>
 
+                                    <!--* Score table -->
+                                    <div id="scoreTable" class="container py-1">
+                                        <table class="table border-top border-dark text-center">
+                                            <thead class="table-secondary">
+                                                <tr id="tableHead">
+                                                    <th scope="col" class="collapse table-dark">1st</th>
+                                                    <th scope="col" class="collapse">2nd</th>
+                                                    <th scope="col" class="collapse">3rd</th>
+                                                    <th scope="col" class="collapse">4th</th>
+                                                    <th scope="col" class="collapse">5th</th>
+                                                    <th scope="col" class="collapse">6th</th>
+                                                    <th scope="col" class="collapse">7th</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="t1Table">
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                </tr>
+                                                <tr id="t2Table">
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                    <td class="cl-score collapse">0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                     <!--* Team list-->
                                     <div class="container">
-                                        <div class="row mx-auto align-item-center">
+                                        <!-- <div class="row mx-auto align-item-center"> -->
                                             <!--* Team 1 -->
-                                            <div class="col my-auto">
+                                            <!-- <div class="col my-auto">
                                                 <div class="dropup d-grid">
-                                                    <button id="t1Button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <span class=""><strong>Team 1</strong></span>
+                                                    <button id="t1Button" class="btn btn-outline-secondary fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Team 1
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="t1Button">
                                                         <li>
@@ -112,13 +143,13 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <!--* Team 2 -->
-                                            <div class="col my-auto">
+                                            <!-- <div class="col my-auto">
                                                 <div class="dropup d-grid">
-                                                    <button id="t2Button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <span class=""><strong>Team 2</strong></span>
+                                                    <button id="t2Button" class="btn btn-outline-secondary fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Team 2
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="t2Button">
                                                         <li>
@@ -144,24 +175,144 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+                                            </div> -->
+                                        <!-- </div> -->
+
+                                        <!--* Team name -->
+                                        <div class="row mx-auto align-item-center py-1">
+                                            <div class="col my-auto d-grid">
+                                                <button id="t1Button" class="btn btn-outline-secondary fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t1Tools" aria-expanded="false" aria-controls="t1Tools">
+                                                    Team 1
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="col my-auto d-grid">
+                                                <button id="t2Button" class="btn btn-outline-secondary fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t2Tools" aria-expanded="false" aria-controls="t2Tools">
+                                                    Team 2
+                                                </button>
                                             </div>
                                         </div>
 
+                                        <!--* Tools -->
+                                        <div class="row mx-auto align-item-center">
+                                            <div class="col my-auto d-grid">
+                                                <div id="t1Tools" class="collapse py-1">
+                                                    <div class="card">
+                                                        <div class="px-1 py-1">
+                                                            <input id="t1NameInput" type="text" class="form-control" maxlength="15" placeholder="Name" aria-label="Recipient's username" aria-describedby="t1Button">
+                                                        </div>
+                                                        <div class="btn-group px-1 py-1">
+                                                            <button id="t1Edit" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-edit fa-lg"></i>
+                                                            </button>
+
+                                                            <button id="t1Add" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-plus"></i>
+                                                            </button>
+                                                        
+                                                            <button id="t1Remove" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col my-auto d-grid">
+                                                <div id="t2Tools" class="collapse py-1">
+                                                    <div class="card">
+                                                        <div class="px-1 py-1">
+                                                            <input id="t2NameInput" type="text" class="form-control" maxlength="15" placeholder="Name" aria-label="Recipient's username" aria-describedby="t2Button">
+                                                        </div>
+                                                        <div class="btn-group px-1 py-1">
+                                                            <button id="t2Edit" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-edit fa-lg"></i>
+                                                            </button>
+
+                                                            <button id="t2Add" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-plus"></i>
+                                                            </button>
+                                                        
+                                                            <button id="t2Remove" class="btn btn-outline-secondary" type="button">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--* Team members -->
                                         <div class="row mx-auto align-item-center">
                                             <div class="col my-auto">
                                                 <ul id="t1Mates" name="t1Mates" class="fw-bold py-1">
-                                                    <li>Tirinde Quburu</li>
-                                                    <li>陳曉明</li>
+                                                    <!-- <li>Tataru Taru</li>
+                                                    <li>Minfilia Warde</li> -->
                                                 </ul>
                                             </div>
 
                                             <div class="col my-auto">
                                                 <ul id="t2Mates" name="t1Mates" class="fw-bold py-1">
-                                                    
+                                                    <!-- <li>Y'shtola Rhul</li>
+                                                    <li>Emet Selch</li> -->
                                                 </ul>
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <!--* Score board -->
+                                    <div class="container">
+                                        <div class="row justify-content-around">
+                                            <div class="col-3 col-xxl-2 my-auto d-grid">
+                                                <button id="t1Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" disabled>0</button>
+                                            </div>
+
+                                            <div class="col-3 col-xxl-2 my-auto d-grid">
+                                                <button id="t2Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" disabled>0</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--* Score buttons -->
+                                    <div class="container py-4">
+                                        <div class="row justify-content-around">
+                                            <div class="col-5 btn-group">
+                                                <button id="t1Minus" class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-minus fa-lg"></i>
+                                                </button>
+                                                <button id="t1Plus" class="btn btn-outline-secondary">
+                                                    <i class="fas fa-plus fa-lg"></i>
+                                                </button>
+                                            </div>
+
+                                            <div class="col-5 btn-group">
+                                                <button id="t2Minus" class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-minus fa-lg"></i>
+                                                </button>
+                                                <button id="t2Plus" class="btn btn-outline-secondary">
+                                                    <i class="fas fa-plus fa-lg"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--* Save next and rematch -->
+                                    <div class="container py-3">
+                                        <div class="row justify-content-around">
+                                            <div class="col-5 d-grid">
+                                                <button id="rematchBtn" class="btn btn-outline-secondary fw-bold">
+                                                    Rematch
+                                                </button>
+                                            </div>
+                                            <div class="col-5 d-grid">
+                                                <button id="nextBtn" class="btn btn-outline-secondary fw-bold collapse" disabled>
+                                                    Next
+                                                </button>
+                                                <button id="saveBtn" class="btn btn-outline-secondary fw-bold" disabled>
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
