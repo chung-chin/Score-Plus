@@ -56,14 +56,14 @@
                                                             <li>
                                                                 <button id="shareBtn" class="btn btn-sm dropdown-item" type="button">
                                                                     <i class="fas fa-share-alt fa-lg"></i>
-                                                                    <span><strong>Share</strong></span>
+                                                                    <span class="px-2"><strong>Share</strong></span>
                                                                 </button>
                                                             </li>
                                                             <li><hr class="dropdown-divider"></li>
                                                             <li>
-                                                                <button id="resetBtn" class="btn btn-sm dropdown-item" type="button">
-                                                                    <i class="fas fa-undo-alt fa-lg"></i>
-                                                                    <span><strong>Reset</strong></span>
+                                                                <button id="cleanBtn" class="btn btn-sm dropdown-item" type="button">
+                                                                    <i class="fas fa-remove-format fa-lg"></i>
+                                                                    <span><strong>Clean</strong></span>
                                                                 </button>
                                                             </li>
                                                         </ul>
@@ -112,72 +112,6 @@
 
                                     <!--* Team list-->
                                     <div class="container">
-                                        <!-- <div class="row mx-auto align-item-center"> -->
-                                            <!--* Team 1 -->
-                                            <!-- <div class="col my-auto">
-                                                <div class="dropup d-grid">
-                                                    <button id="t1Button" class="btn btn-outline-secondary fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Team 1
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="t1Button">
-                                                        <li>
-                                                            <div class="px-3 py-1">
-                                                                <input id="t1NameInput" type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="t1Button">
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="btn-group dropdown-item">
-                                                                <button id="t1Edit" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-edit fa-lg"></i>
-                                                                </button>
-
-                                                                <button id="t1Add" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-plus"></i>
-                                                                </button>
-                                                            
-                                                                <button id="t1Remove" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-minus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div> -->
-
-                                            <!--* Team 2 -->
-                                            <!-- <div class="col my-auto">
-                                                <div class="dropup d-grid">
-                                                    <button id="t2Button" class="btn btn-outline-secondary fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Team 2
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="t2Button">
-                                                        <li>
-                                                            <div class="px-3 py-1">
-                                                                <input id="t2NameInput" type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="t2Button">
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="btn-group dropdown-item">
-                                                                <button id="t2Edit" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-edit fa-lg"></i>
-                                                                </button>
-
-                                                                <button id="t2Add" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-plus"></i>
-                                                                </button>
-                                                            
-                                                                <button id="t2Remove" class="btn btn-outline-secondary" type="button">
-                                                                    <i class="fas fa-minus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div> -->
-                                        <!-- </div> -->
-
                                         <!--* Team name -->
                                         <div class="row mx-auto align-item-center py-1">
                                             <div class="col my-auto d-grid">
@@ -203,15 +137,15 @@
                                                         </div>
                                                         <div class="btn-group px-1 py-1">
                                                             <button id="t1Edit" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-edit fa-lg"></i>
+                                                                <i class="fas fa-edit"></i>
                                                             </button>
 
                                                             <button id="t1Add" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-plus"></i>
+                                                                <i class="fas fa-user-plus"></i>
                                                             </button>
                                                         
                                                             <button id="t1Remove" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-minus"></i>
+                                                                <i class="fas fa-user-minus"></i>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -226,15 +160,15 @@
                                                         </div>
                                                         <div class="btn-group px-1 py-1">
                                                             <button id="t2Edit" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-edit fa-lg"></i>
+                                                                <i class="fas fa-edit"></i>
                                                             </button>
 
                                                             <button id="t2Add" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-plus"></i>
+                                                                <i class="fas fa-user-plus"></i>
                                                             </button>
                                                         
                                                             <button id="t2Remove" class="btn btn-outline-secondary" type="button">
-                                                                <i class="fas fa-minus"></i>
+                                                                <i class="fas fa-user-minus"></i>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -246,15 +180,15 @@
                                         <div class="row mx-auto align-item-center">
                                             <div class="col my-auto">
                                                 <ul id="t1Mates" name="t1Mates" class="fw-bold py-1">
-                                                    <!-- <li>Tataru Taru</li>
-                                                    <li>Minfilia Warde</li> -->
+                                                    <li>Tataru Taru</li>
+                                                    <li>Minfilia Warde</li>
                                                 </ul>
                                             </div>
 
                                             <div class="col my-auto">
                                                 <ul id="t2Mates" name="t1Mates" class="fw-bold py-1">
-                                                    <!-- <li>Y'shtola Rhul</li>
-                                                    <li>Emet Selch</li> -->
+                                                    <li>Y'shtola Rhul</li>
+                                                    <li>Emet Selch</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -262,13 +196,18 @@
 
                                     <!--* Score board -->
                                     <div class="container">
-                                        <div class="row justify-content-around">
+                                        <div class="row justify-content-center">
                                             <div class="col-3 col-xxl-2 my-auto d-grid">
-                                                <button id="t1Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" disabled>0</button>
+                                                <input id="t1Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" value="0" disabled>
+                                            </div>
+
+                                            <div class="col-3 col-xxl-4 my-auto d-grid">
+                                                <input id="deuceBar" class="btn fs-5 fw-bold collapse" type="button" value="Deuce" disabled>
+                                                <input id="winBar" class="btn fs-5 fw-bold collapse" type="button" value="WIN" disabled>
                                             </div>
 
                                             <div class="col-3 col-xxl-2 my-auto d-grid">
-                                                <button id="t2Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" disabled>0</button>
+                                                <input id="t2Score" class="btn btn-outline-dark fw-bold fs-1 cl-score" type="button" value="0" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -297,18 +236,21 @@
                                     </div>
 
                                     <!--* Save next and rematch -->
-                                    <div class="container py-3">
+                                    <div class="container">
                                         <div class="row justify-content-around">
                                             <div class="col-5 d-grid">
                                                 <button id="rematchBtn" class="btn btn-outline-secondary fw-bold">
+                                                    <i class="fas fa-undo"></i>
                                                     Rematch
                                                 </button>
                                             </div>
                                             <div class="col-5 d-grid">
                                                 <button id="nextBtn" class="btn btn-outline-secondary fw-bold collapse" disabled>
+                                                    <i class="fas fa-arrow-circle-right fa-lg"></i>
                                                     Next
                                                 </button>
                                                 <button id="saveBtn" class="btn btn-outline-secondary fw-bold" disabled>
+                                                    <i class="fas fa-save"></i>
                                                     Save
                                                 </button>
                                             </div>
