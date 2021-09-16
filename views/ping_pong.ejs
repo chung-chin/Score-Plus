@@ -13,9 +13,9 @@
                                 <div class="card-body bg-light">
 
                                     <!--* Main photo -->
-                                    <div class="container collapse">
+                                    <!-- <div class="container collapse">
                                         <img class="img-fluid img-thumbnail" src="/photo/ping_pong.jpg" alt="">
-                                    </div>
+                                    </div> -->
 
                                     <!--* Score keeper navbar -->
                                     <nav id="scoreKeeperNav" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -74,8 +74,8 @@
                                     </nav>
 
                                     <!--* Score table -->
-                                    <div id="scoreTable" class="container py-1">
-                                        <table class="table border-top border-dark text-center">
+                                    <div class="container py-1">
+                                        <table id="scoreTable" class="table border-top border-dark text-center">
                                             <thead class="table-secondary">
                                                 <tr id="tableHead">
                                                     <th scope="col" class="collapse table-dark">1st</th>
@@ -114,12 +114,14 @@
                                     <div class="container">
                                         <!--* Team name -->
                                         <div class="row mx-auto align-item-center py-1">
+                                            <!-- <i id="crownLeft" class="fas fa-crown fa-lg"></i> -->
                                             <div class="col my-auto d-grid">
                                                 <button id="t1Button" class="btn btn-outline-secondary fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t1Tools" aria-expanded="false" aria-controls="t1Tools">
                                                     Team 1
                                                 </button>
                                             </div>
                                             
+                                            <!-- <i id="crownRight" class="fas fa-crown fa-lg"></i> -->
                                             <div class="col my-auto d-grid">
                                                 <button id="t2Button" class="btn btn-outline-secondary fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t2Tools" aria-expanded="false" aria-controls="t2Tools">
                                                     Team 2
@@ -133,7 +135,7 @@
                                                 <div id="t1Tools" class="collapse py-1">
                                                     <div class="card">
                                                         <div class="px-1 py-1">
-                                                            <input id="t1NameInput" type="text" class="form-control" maxlength="15" placeholder="Name" aria-label="Recipient's username" aria-describedby="t1Button">
+                                                            <input id="t1NameInput" type="text" class="form-control" maxlength="18" placeholder="Name" aria-label="Recipient's username" aria-describedby="t1Button">
                                                         </div>
                                                         <div class="btn-group px-1 py-1">
                                                             <button id="t1Edit" class="btn btn-outline-secondary" type="button">
@@ -239,7 +241,7 @@
                                     <div class="container">
                                         <div class="row justify-content-around">
                                             <div class="col-5 d-grid">
-                                                <button id="rematchBtn" class="btn btn-outline-secondary fw-bold">
+                                                <button id="rematchBtn" class="btn btn-outline-secondary fw-bold" disabled>
                                                     <i class="fas fa-undo"></i>
                                                     Rematch
                                                 </button>
