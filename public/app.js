@@ -137,9 +137,8 @@ const tableDark = () => {
 }
 
 // next game
-const nextGame = async () => {
-    //await tableInsert();
-    await gCurrent++;
+const nextGame = () => {
+    gCurrent++;
     tableHighlight();
     setButton();
 
