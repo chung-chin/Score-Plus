@@ -23,6 +23,7 @@ const allScore = document.querySelectorAll('.cl-score');    // for cleaning all 
 
 class teams {
     constructor(t) {
+        this.score_history = [];
         this.score = 0;
         this.goal = 0;
         this.winner = 0;
@@ -144,6 +145,7 @@ const nextGame = () => {
 
     for(let i of [t1, t2]) {
         i.score = 0;
+        i.score_history = [];
         i.scoreValue.value = 0;
         i.minusBtn.disabled = true;
         i.winner = 0;
@@ -194,6 +196,7 @@ const rematch = () => {
     }
     for(let i of [t1, t2]) {
         i.score = 0;
+        i.score_history = [];
         i.scoreValue.value = 0;
         i.minusBtn.disabled = true;
     }
@@ -227,26 +230,28 @@ const cleanAllScore = () => {
         3. deuce
 ----------------------*/
 t1.plusBtn.addEventListener('click', () => {
-    plusOne(t1, t2);
+    pluScore(t1, t2, 1);
 })
 
 t1.minusBtn.addEventListener('click', () => {
-    minusOne(t1, t2);
+    minuScore(t1, t2);
 })
 
 t2.plusBtn.addEventListener('click', () => {
-    plusOne(t2, t1);
+    pluScore(t2, t1, 1);
 })
 
 t2.minusBtn.addEventListener('click', () => {
-    minusOne(t2, t1);
+    minuScore(t2, t1);
 })
 
 
-const plusOne = (team, another) => {
+const pluScore = (team, another, scoreN) => {
     rematchBtn.disabled = false;
     if( !endGame ){
-        team.score++;
+        team.score_history.push(scoreN);
+        another.score_history.push(0);
+        team.score += scoreN;
         team.minusBtn.disabled = false;
         team.scoreValue.value = team.score;
         tableInsert();
@@ -269,18 +274,29 @@ const plusOne = (team, another) => {
     }
 }
 
-const minusOne = (team, another) => {
+const minuScore = (team, another) => {
+    function scoreM() {
+            team.score -= team.score_history[team.score_history.length - 1];
+            team.scoreValue.value = team.score;
+            team.score_history.pop();
+            another.score_history.pop();
+    }
+
     if( endGame ) {
         if( team.score === scoreMax) {
-            team.score--;
-            team.scoreValue.value = team.score;
+            scoreM();
+            // team.score -= team.score_history[team.score_history.length - 1];
+            // team.scoreValue.value = team.score;
+            // team.score_history.pop();
+            // another.score_history.pop();
             
             ending(0);
             team.winner = 0;
             team.goal--;
         } else {
-            team.score--;
-            team.scoreValue.value = team.score;
+            scoreM();
+            // team.score--;
+            // team.scoreValue.value = team.score;
             deuceCheck();
             another.minusBtn.disabled = false;
             
@@ -291,8 +307,11 @@ const minusOne = (team, another) => {
         tableInsert();
     } else {
         if( deuce ) {
-            team.score--;
-            team.scoreValue.value = team.score;
+            scoreM();
+            // team.score -= team.score_history[team.score_history.length - 1];
+            // team.scoreValue.value = team.score;
+            // team.score_history.pop();
+            // another.score_history.pop();
             tableInsert();
             deuceCheck();
             if( another.score === scoreMax | team.score >= scoreMax-1 && !deuce) {
@@ -303,8 +322,11 @@ const minusOne = (team, another) => {
                 ending(1);
             }
         } else {
-            team.score--;
-            team.scoreValue.value = team.score;
+            scoreM();
+            // team.score -= team.score_history[team.score_history.length - 1];
+            // team.scoreValue.value = team.score;
+            // team.score_history.pop();
+            // another.score_history.pop();
         }
     }
     //tableInsert();
