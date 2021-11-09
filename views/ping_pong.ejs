@@ -10,12 +10,15 @@
 
                             <!--*///// Start /////-->
                             <div class="container py-3 bg-secondary">
-                                <div class="card-body bg-light">
-
+                                <div id="resultInt" class="card-body bg-light collapse">
                                     <!--* Main photo -->
                                     <!-- <div class="container collapse">
                                         <img class="img-fluid img-thumbnail" src="/photo/ping_pong.jpg" alt="">
                                     </div> -->
+                                    <form action="/scorekeeper" method="post"></form>
+                                </div>
+
+                                <div id="scoreInt" class="card-body bg-light">                               
 
                                     <!--* Score keeper navbar -->
                                     <nav id="scoreKeeperNav" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -237,7 +240,7 @@
                                         </div>
                                     </div>
 
-                                    <!--* Save next and rematch -->
+                                    <!--* Check next and rematch -->
                                     <div class="container">
                                         <div class="row justify-content-around">
                                             <div class="col-5 d-grid">
@@ -251,9 +254,9 @@
                                                     <i class="fas fa-arrow-circle-right fa-lg"></i>
                                                     Next
                                                 </button>
-                                                <button id="saveBtn" class="btn btn-outline-secondary fw-bold" disabled>
-                                                    <i class="fas fa-save"></i>
-                                                    Save
+                                                <button id="checkBtn" class="btn btn-outline-secondary fw-bold" disabled>
+                                                    <i class="fas fa-file-alt fa-lg"></i>
+                                                    Check
                                                 </button>
                                             </div>
                                         </div>
