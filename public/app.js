@@ -10,7 +10,7 @@ let deuce = false;
 let gameCalled = false;
 
 const rematchBtn = document.getElementById('rematchBtn');
-const saveBtn = document.getElementById('saveBtn');
+const checkBtn = document.getElementById('checkBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 const scoreTable = document.getElementById('scoreTable');
@@ -87,6 +87,31 @@ nextBtn.addEventListener('click', () => {
     nextGame();
 })
 
+// test ------------
+const sct = 
+    {
+        team: [],
+        scores: [],
+        members: [],
+        owners: []
+    }
+
+
+checkBtn.addEventListener('click', async () => {
+    // const c = t1.goal + t2.goal;
+
+    try {
+        const sendSct = await axios.post(
+                'http://localhost:3000/scoreplus',
+                sct
+            )
+        return sendSct;
+    } catch(err) {
+        console.log(err);
+    }
+})
+
+// test -------------
 
 
 // show or hide table elements
@@ -113,10 +138,10 @@ const tableIni = (tb) => {
 const setButton = () => {
     if( gameMax === gCurrent) {
         nextBtn.classList.add('collapse');
-        saveBtn.classList.remove('collapse');
+        checkBtn.classList.remove('collapse');
     } else {
         nextBtn.classList.remove('collapse');
-        saveBtn.classList.add('collapse');
+        checkBtn.classList.add('collapse');
     }
 }
 
@@ -161,7 +186,7 @@ const ending = (i) => {
     t1.plusBtn.disabled = i;
     t2.plusBtn.disabled = i;
     endGame = !!i;
-    saveBtn.disabled = !i;
+    checkBtn.disabled = !i;
     nextBtn.disabled = !i;
     if( endGame ) {
         winBar.classList.remove('collapse');

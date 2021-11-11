@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/games', {useNewUrlParser: true, useU
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -32,6 +33,13 @@ app.get('/scoreplus', (req, res) => {
     } else {
         res.render('score_plus', { pageName: "Score Plus"})
     }
+})
+
+app.post('/scoreplus', (req, res) => {
+    const data = req.body;
+    console.log(typeof(data))
+    console.log(data);
+    res.end();
 })
 
 app.listen(3000, () => {
