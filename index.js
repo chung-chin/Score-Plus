@@ -4,7 +4,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { render } = require('ejs');
 
-mongoose.connect('mongodb://localhost:27017/games', {useNewUrlParser: true, useUnifiedTopology: true})
+const makeData = require('./models/MakeData');
+
+mongoose.connect('mongodb://localhost:27017/scoreplus', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("Mongo connection open !!")
     })
@@ -35,10 +37,13 @@ app.get('/scoreplus', (req, res) => {
     }
 })
 
-app.post('/scoreplus', (req, res) => {
+app.post('/scoreplus', async (req, res) => {
     const data = req.body;
-    console.log(typeof(data))
+    //console.log(typeof(data.date))
     console.log(data);
+    //console.log(data.teamOne.scores);
+    const data2 = new makeData(req.body);
+    await data2.save();
     res.end();
 })
 

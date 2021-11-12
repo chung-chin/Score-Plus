@@ -9,6 +9,9 @@ let gCurrent = 1;   // current games
 let deuce = false;
 let gameCalled = false;
 
+const sportNav = document.getElementById('scoreKeeperNavName');
+const sportName = sportNav.innerText.replace(' Score Keeper', '');
+
 const rematchBtn = document.getElementById('rematchBtn');
 const checkBtn = document.getElementById('checkBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -88,23 +91,65 @@ nextBtn.addEventListener('click', () => {
 })
 
 // test ------------
-const sct = 
-    {
-        team: [],
-        scores: [],
-        members: [],
-        owners: []
+const createData = () => {
+    const c = t1.goal + t2.goal;    // finished games
+    const dateObject = new Date();
+
+    const sct = 
+        {
+            date: dateObject,
+            sport: sportName,
+            maxGame: gameMax,
+            maxScore: scoreMax,
+            owners: [],
+            winner: '',
+            teams: []
+        }
+
+    for(let t of [t1, t2]) {
+
+        const teamData = {
+            name: '',
+            scores: [],
+            members: []
+        }
+
+        const mbs = t.mates.childElementCount;  //team members
+
+        teamData.name = t.teamBtn.innerText;
+
+        if (t.winner === 1) {
+            sct.winner = t.teamBtn.innerText;
+        }
+
+        // insert scores from table
+        for (let i=0; i<c; i++) {
+            teamData.scores.push(t.table.children[i].innerText);
+        }
+
+        // insert member's name
+        for (let i=0; i<mbs; i++) {
+            teamData.members.push(t.mates.children[i].innerText);
+        }
+        sct.teams.push(teamData);
     }
+
+    // inserData(sct.teamOne, t1);
+    // inserData(sct.teamTwo, t2);
+
+    return sct;
+
+}
 
 
 checkBtn.addEventListener('click', async () => {
-    // const c = t1.goal + t2.goal;
-
+    sct = createData();
     try {
         const sendSct = await axios.post(
                 'http://localhost:3000/scoreplus',
                 sct
             )
+        checkBtn.disabled = true;
         return sendSct;
     } catch(err) {
         console.log(err);
