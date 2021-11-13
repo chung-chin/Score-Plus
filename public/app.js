@@ -13,7 +13,7 @@ const sportNav = document.getElementById('scoreKeeperNavName');
 const sportName = sportNav.innerText.replace(' Score Keeper', '');
 
 const rematchBtn = document.getElementById('rematchBtn');
-const checkBtn = document.getElementById('checkBtn');
+const saveBtn = document.getElementById('saveBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 const scoreTable = document.getElementById('scoreTable');
@@ -58,6 +58,7 @@ t2 = new teams('t2');   // team 2
         3. rematch
         4. clean all score
         5. next game
+        6. save game
 ---------------------------------*/
 gameSet.addEventListener('change', function () {
     gameMax = parseInt(this.value);
@@ -134,22 +135,29 @@ const createData = () => {
         sct.teams.push(teamData);
     }
 
-    // inserData(sct.teamOne, t1);
-    // inserData(sct.teamTwo, t2);
-
     return sct;
 
 }
 
-
-checkBtn.addEventListener('click', async () => {
+saveBtn.addEventListener('click', async () => {
     sct = createData();
     try {
         const sendSct = await axios.post(
                 'http://localhost:3000/scoreplus',
                 sct
             )
-        checkBtn.disabled = true;
+        saveBtn.disabled = true;
+
+        const re = sendSct.data
+
+        if(re.error) {
+            alert(re.message);
+            saveBtn.disabled = false;
+        } else {
+            alert(re.message);
+            t1.minusBtn.disabled = true;
+            t2.minusBtn.disabled = true;
+        }
         return sendSct;
     } catch(err) {
         console.log(err);
@@ -183,10 +191,10 @@ const tableIni = (tb) => {
 const setButton = () => {
     if( gameMax === gCurrent) {
         nextBtn.classList.add('collapse');
-        checkBtn.classList.remove('collapse');
+        saveBtn.classList.remove('collapse');
     } else {
         nextBtn.classList.remove('collapse');
-        checkBtn.classList.add('collapse');
+        saveBtn.classList.add('collapse');
     }
 }
 
@@ -231,7 +239,7 @@ const ending = (i) => {
     t1.plusBtn.disabled = i;
     t2.plusBtn.disabled = i;
     endGame = !!i;
-    checkBtn.disabled = !i;
+    saveBtn.disabled = !i;
     nextBtn.disabled = !i;
     if( endGame ) {
         winBar.classList.remove('collapse');

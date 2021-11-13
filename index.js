@@ -37,14 +37,19 @@ app.get('/scoreplus', (req, res) => {
     }
 })
 
-app.post('/scoreplus', async (req, res) => {
+app.post('/scoreplus', (req, res) => {
     const data = req.body;
-    //console.log(typeof(data.date))
-    console.log(data);
-    //console.log(data.teamOne.scores);
+    let response = {}
+    //console.log(data);
     const data2 = new makeData(req.body);
-    await data2.save();
-    res.end();
+    data2.save(function(err, result) {
+        if(err) {
+            response = { error: true, message: 'Error! Please try again.'}
+        } else {
+            response = { error: false, message: 'Data added.'}
+        }
+        res.json(response);
+    });
 })
 
 app.listen(3000, () => {
