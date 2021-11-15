@@ -10,9 +10,9 @@
 
     <div id="mainNavLinks" class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <form class="d-flex nav-item">
-                <input class="form-control me-2" type="search" placeholder="Username" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">
+            <form id="search-form" action="/scoreplus/results" class="d-flex nav-item">
+                <input id="search-input" name="search_query" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+                <button id="search-btn" class="btn btn-outline-light" type="button" aria-label="Search">
                     <i class="fas fa-search fa-lg"></i>
                 </button>
             </form>

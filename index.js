@@ -52,6 +52,25 @@ app.post('/scoreplus', (req, res) => {
     });
 })
 
+app.get('/scoreplus/results', async (req, res) => {
+    const { search_query } = req.query;
+
+    if(search_query) {
+        //console.log(typeof(search_query))
+        console.log(search_query)
+    } else {
+        console.log('search_all')
+    }
+    res.end();
+    // if (search_query) {
+    //     const result = await makeData.find({ search_query })
+    //     res.render('views/results', { result, search_query })
+    // } else {
+    //     const result = await makeData.find({})
+    //     res.render('views/results', { result, search_query: 'All'})
+    // }
+})
+
 app.listen(3000, () => {
     console.log("APP IS LISTENING ON PORT 3000!")
 })
