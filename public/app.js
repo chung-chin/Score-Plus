@@ -9,19 +9,19 @@ let gCurrent = 1;   // current games
 let deuce = false;
 let gameCalled = false;
 
-const sportNav = document.getElementById('scoreKeeperNavName');
+const sportNav = document.getElementById('score-nav-title');
 const sportName = sportNav.innerText.replace(' Score Keeper', '');
 
-const rematchBtn = document.getElementById('rematchBtn');
-const saveBtn = document.getElementById('saveBtn');
-const nextBtn = document.getElementById('nextBtn');
+const rematchBtn = document.getElementById('rematch-btn');
+const nextBtn = document.getElementById('next-btn');
+const saveBtn = document.getElementById('save-btn');
 
-const scoreTable = document.getElementById('scoreTable');
-const tableHead = document.getElementById('tableHead');
-const deuceBar = document.getElementById('deuceBar');
-const winBar = document.getElementById('winBar');
+const scoreTable = document.getElementById('score-table');
+const tableHead = document.getElementById('score-table-head');
+const deuceBar = document.getElementById('deuce-bar');
+const winBar = document.getElementById('win-bar');
 
-const cleanBtn = document.getElementById('cleanBtn');
+const cleanBtn = document.getElementById('clean-btn');
 const allScore = document.querySelectorAll('.cl-score');    // for cleaning all score
 
 class teams {
@@ -31,20 +31,20 @@ class teams {
         this.goal = 0;
         this.winner = 0;
 
-        this.table = document.getElementById(t+'Table');    // score table
+        this.table = document.getElementById('score-table-'+t);    // score table
         
-        this.inputText = document.getElementById(t+'NameInput');
-        this.scoreValue = document.getElementById(t+'Score');
+        this.inputText = document.getElementById(t+'-input');
+        this.scoreValue = document.getElementById(t+'-score');
         
-        this.teamBtn = document.getElementById(t+'Button'); // team name & toolbar
-        this.plusBtn = document.getElementById(t+'Plus');
-        this.minusBtn = document.getElementById(t+'Minus');
+        this.teamBtn = document.getElementById(t+'-btn'); // team name & toolbar
+        this.plusBtn = document.getElementById(t+'-plus');
+        this.minusBtn = document.getElementById(t+'-minus');
 
-        this.editor = document.getElementById(t+'Edit');    // edit team name
-        this.adder = document.getElementById(t+'Add');  // add a team member
-        this.remover = document.getElementById(t+'Remove'); // remove the last team member
+        this.editor = document.getElementById(t+'-edit');    // edit team name
+        this.adder = document.getElementById(t+'-add');  // add a team member
+        this.remover = document.getElementById(t+'-remove'); // remove the last team member
 
-        this.mates = document.getElementById(t+'Mates');    // teammates list
+        this.mates = document.getElementById(t+'-mates');    // teammates list
     }
 }
 
@@ -91,7 +91,12 @@ nextBtn.addEventListener('click', () => {
     nextGame();
 })
 
-// test ------------
+saveBtn.addEventListener('click', () => {
+    sct = createData();
+    sendData(sct);
+})
+
+// creat data
 const createData = () => {
     const c = t1.goal + t2.goal;    // finished games
     const dateObject = new Date();
@@ -139,8 +144,8 @@ const createData = () => {
 
 }
 
-saveBtn.addEventListener('click', async () => {
-    sct = createData();
+// send data
+const sendData = async (sct) => {
     try {
         const sendSct = await axios.post(
                 'http://localhost:3000/scoreplus',
@@ -162,10 +167,7 @@ saveBtn.addEventListener('click', async () => {
     } catch(err) {
         console.log(err);
     }
-})
-
-// test -------------
-
+}
 
 // show or hide table elements
 const tableIni = (tb) => {

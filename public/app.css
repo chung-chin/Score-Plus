@@ -6,21 +6,21 @@
     box-shadow: none;
 }
 
-#t1Table, #t1Button, #t1Score, #t1Minus, #t1Plus {
+#t1-table, #t1-input, #t1-score, #t1-minus, #t1-plus {
     background-color: #e1eaee;
 }
 
-#t2Table, #t2Button, #t2Score, #t2Minus, #t2Plus {
+#t2-table, #t2-input, #t2-score, #t2-minus, #t2-plus {
     background-color: #e6e6d0;
 }
 
-#scoreKeeperCog {
+#score-nav-cog {
     margin-left: 2rem;
     margin-bottom: .2rem;
     border: none;
 }
 
-#deuceBar {
+#deuce-bar {
     border: none;
     padding: 0;
 }
