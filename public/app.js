@@ -92,8 +92,12 @@ nextBtn.addEventListener('click', () => {
 })
 
 saveBtn.addEventListener('click', () => {
-    sct = createData();
-    sendData(sct);
+    if (t1.teamBtn.innerText.includes(' ') || t2.teamBtn.innerText.includes(' ')) {
+        alert('Please enter a team name.')
+    } else {
+        sct = createData();
+        sendData(sct);
+    }
 })
 
 // creat data
@@ -441,58 +445,71 @@ const deuceCheck = () => {
 // Team 1
 t1.editor.addEventListener('click', (e) => {
     e.preventDefault();
-    editTeamName(t1.teamBtn, t1.inputText, 'Team 1');
+    editTeamName(t1.teamBtn, t1.inputText, 'Team A');
 })
 
 t1.adder.addEventListener('click', (e) => {
     e.preventDefault();
-    addTeamMate(t1.mates, t1.inputText)
+    addTeamMate(t1.teamBtn, t1.mates, t1.inputText)
 })
 
 t1.remover.addEventListener('click', (e) => {
     e.preventDefault();
-    rmTeamMate(t1.mates);
+    rmTeamMate(t1.teamBtn, t1.mates, 'Team A');
 })
 
 // Team 2
 t2.editor.addEventListener('click', (e) => {
     e.preventDefault();
-    editTeamName(t2.teamBtn, t2.inputText, 'Team 2');
+    editTeamName(t2.teamBtn, t2.inputText, 'Team B');
 })
 
 t2.adder.addEventListener('click', (e) => {
     e.preventDefault();
-    addTeamMate(t2.mates, t2.inputText)
+    addTeamMate(t2.teamBtn, t2.mates, t2.inputText)
 })
 
 t2.remover.addEventListener('click', (e) => {
     e.preventDefault();
-    rmTeamMate(t2.mates);
+    rmTeamMate(t2.teamBtn, t2.mates, 'Team B');
 })
 
 // Edit team name
 const editTeamName = (team, name, defaultName) => {
-    if (name.value === '') {
-        team.innerText = defaultName;
+    if (name.value.includes(' ')) {
+        alert('Not allowed name')
     } else {
-        team.innerText = name.value;
-        name.value = '';
+        if (name.value !== '') {
+        //     team.innerText = defaultName;
+        // } else {
+            team.innerText = name.value;
+            name.value = '';
+        }
     }
 }
 
 // Add a team member
-const addTeamMate = (team, name) => {
-    if (name.value !== '') {
+const addTeamMate = (team, mates, name) => {
+    if (name.value.includes(' ')) {
+        alert('Not allowed name')
+    } else if (name.value !== '') {
+        if (team.innerText.includes(' ')) {
+            team.innerText = name.value;
+        }
         const newPlayer = document.createElement('li');
         newPlayer.append(name.value);
-        team.append(newPlayer);
+        mates.append(newPlayer);
         name.value = '';
     }
 }
 
 // Remove the last team member
-const rmTeamMate = (team) => {
-    if (team.lastElementChild !== null) {
-        team.lastElementChild.remove();
+const rmTeamMate = (team, mates, defaultName) => {
+    if (mates.lastElementChild !== null) {
+        const firstMate = mates.firstElementChild.innerText;
+        mates.lastElementChild.remove();
+        if (mates.lastElementChild === null && team.innerText === firstMate) {
+            team.innerText = defaultName;
+        }
     }
 }

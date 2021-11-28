@@ -1,10 +1,10 @@
 const searchForm = document.getElementById('search-form');
 const searchBtn = document.getElementById('search-btn');
+const searchInput = document.getElementById('search-input');
 
 searchBtn.addEventListener('click', () => {
-    const searchInput = document.getElementById('search-input');
-    const inputValue = searchInput.value;
-    const inputCheck = inputValue.replace(/\s/g, '')
+    const inputCheck = searchInput.value.replace(/\s/g, '');
+
     if (inputCheck != '') {
         searchForm.submit();
     } else {

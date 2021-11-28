@@ -55,6 +55,8 @@ app.post('/scoreplus', (req, res) => {
 app.get('/scoreplus/results', async (req, res) => {
     const { search_query } = req.query;
 
+    // console.log(search_query)
+
     // if(search_query) {
     //     //console.log(typeof(search_query))
     //     console.log(search_query)
@@ -63,11 +65,12 @@ app.get('/scoreplus/results', async (req, res) => {
     // }
     // res.end();
     if (search_query) {
-        const results = await makeData.find({ 'teams.members':search_query })
+        const results = await makeData.find({ 'teams.members':{$regex: search_query} })
+        // console.log(results)
         res.render('results', { pageName: 'Results', results, search_query })
     } else {
         const results = await makeData.find({})
-        res.render('results', { pageName: 'Results', results, search_query: 'All'})
+        res.render('results', { pageName: 'Results', results, search_query: '' })
     }
 })
 
